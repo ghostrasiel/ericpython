@@ -1,0 +1,15 @@
+#!Dockerfile
+FROM python:3
+
+WORKDIR /usr/src/app
+
+ADD ./app /usr/src/app
+
+RUN pip install requests
+RUN pip install BeautifulSoup4
+RUN pip install pymongo
+
+EXPOSE 80
+
+CMD ['python' , 'pytelmon.py']
+
