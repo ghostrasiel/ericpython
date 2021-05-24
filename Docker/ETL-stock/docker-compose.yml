@@ -9,9 +9,8 @@ services:
           MONGO_INITDB_ROOT_PASSWORD: "123456"
         ports: 
             - "27017:27017"
-        working_dir: /src
         volumes:
-            - ./mongodata:/src
+            - "./mongodata:/data/db"
 
     mongo-express:
         image: mongo-express
