@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 
 ADD ./app /usr/src/app
 
+RUN python -m pip install --upgrade pip
 RUN pip install requests
 RUN pip install BeautifulSoup4
 RUN pip install pymongo
