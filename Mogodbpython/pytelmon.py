@@ -23,7 +23,7 @@ if collection.find_one() != None:
 else:
     mongo_id = 0
 
-for i in range(5): 
+for i in range(3): 
     print(f'-------第{i+1}頁開始--------')
     res = requests.get(url = url , headers  = headers , cookies = cookies) 
     soup = BeautifulSoup(res.text)

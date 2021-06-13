@@ -4,7 +4,7 @@ client = pymongo.MongoClient(host='localhost',port=27017)
 mydb = client.erictest
 #指定資料
 collection = mydb.pttstock
-# date1 = {'name':'rong','kg':55,'age':24}
+date1 = {'name':'rong','kg':55,'age':24}
 #插入
 # collection.insert(date1)
 #查詢
@@ -17,3 +17,4 @@ for res in result:
 #     print(True)
 # else :
 #     print(False)
+client.close()
