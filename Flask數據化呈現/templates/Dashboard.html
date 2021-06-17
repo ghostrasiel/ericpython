@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+   <head>
+      <meta charset="utf-8">
+      <title>電動車拖釣資訊</title>
+      <script type="text/javascript" src="static/js/jquery.min.js"></script> <!--載入圖表數據js-->
+      <script type="text/javascript" src="static/js//echarts.min.js"></script>  <!--載入圖表數據js-->
+   </head>
+   <body style="background-color: rgb(226, 221, 220);">
+      <div style="background-color: rgb(222, 235, 240);border-radius: 20px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3);height: 1100px;">
+      <div style="height: 20px; width:100%;"></div>
+      <div style="color:rgb(46,68,84) ;font-size: 24px; width:100%;padding-left: 50px;padding-bottom: 20px;">Dashboard</div>
+      <div style="margin-left: 50px;padding-top:30px;width: 500px;height: 320px;background-color: whitesmoke; border:rgba(16, 16, 16 , 1);border-radius: 10px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3) ;display: inline-block;">
+      <div id="Pie"  style="width:500px; height:300px;"></div>
+      <script>
+         $(
+               function () {
+                  var chart = echarts.init(document.getElementById('Pie'), 'white', {renderer: 'canvas'});
+                  $.ajax({
+                     type: "GET",
+                     url: "/PieChart",
+                     dataType: 'json',
+                     success: function (result) {
+                           chart.setOption(result);
+                     }
+                  });
+               }
+         )
+      </script>
+      </div>
+      <div style="margin-left: 50px;padding-top:0px;padding-left:20px;width: 600px;height: 350px;background-color: whitesmoke; border:rgba(16, 16, 16 , 1);border-radius: 10px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3) ;display: inline-block;">
+           <div id="Bar" style="width:600px; height:350px;margin-left: 10px;"></div>
+           <script>
+              $(
+                    function () {
+                       var chart = echarts.init(document.getElementById('Bar'), 'white', {renderer: 'canvas'});
+                       $.ajax({
+                          type: "GET",
+                          url: "/BarChart",
+                          dataType: 'json',
+                          success: function (result) {
+                                chart.setOption(result);
+                          }
+                       });
+                    }
+              )
+           </script>
+      </div>
+      <div style="margin-left: 50px;padding-top:30px;width: 500px;height: 320px;background-color: whitesmoke; border:rgba(16, 16, 16 , 1);border-radius: 10px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3) ;display: inline-block;">
+      <div id="Pie2" style="width:500px; height:300px;"></div>
+      <script>
+         $(
+               function () {
+                  var chart = echarts.init(document.getElementById('Pie2'), 'white', {renderer: 'canvas'});
+                  $.ajax({
+                     type: "GET",
+                     url: "/PieChart2",
+                     dataType: 'json',
+                     success: function (result) {
+                           chart.setOption(result);
+                     }
+                  });
+               }
+         )
+      </script>
+      </div>
+   
+        <div style="margin-left: 50px;margin-top:20px;padding-left:0px;width: 500px;height: 600px;background-color: whitesmoke; border:rgba(16, 16, 16 , 1);border-radius: 10px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3) ;display: inline-block">
+            <div id="tree" style="width:500px; height:600px;"></div>
+            <script>
+            $(
+                    function () {
+                        var chart = echarts.init(document.getElementById('tree'), 'white', {renderer: 'canvas'});
+                        $.ajax({
+                        type: "GET",
+                        url: "/treeChart",
+                        dataType: 'json',
+                        success: function (result) {
+                                chart.setOption(result);
+                        }
+                        });
+                    }
+            )
+            </script>
+         </div>
+         <div style="margin-left: 50px;margin-top:20px;padding-left:0px;width: 1200px;height: 600px;background-color: whitesmoke; border:rgba(16, 16, 16 , 1);border-radius: 10px;box-shadow:2px 2px 5px rgba(16, 16, 16 , 0.3);display: inline-block">
+            <div id="sun" style="width:1200px; height:600px;"></div>
+            <script>
+            $(
+                    function () {
+                        var chart = echarts.init(document.getElementById('sun'), 'white', {renderer: 'canvas'});
+                        $.ajax({
+                        type: "GET",
+                        url: "/SunChart",
+                        dataType: 'json',
+                        success: function (result) {
+                                chart.setOption(result);
+                        }
+                        });
+                    }
+            )
+            </script>
+         </div>
+      </div>
+   <div style="height:50px;"></div>
+   </body>
+</html>
+
